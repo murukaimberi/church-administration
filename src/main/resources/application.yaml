@@ -1,0 +1,14 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /church-admin
+spring:
+  application:
+    name: church-registration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/church_admin
+    username: user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create

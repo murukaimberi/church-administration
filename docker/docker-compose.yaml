@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  church-admin:
+    depends_on:
+      - church-admin-postgres
+    image: "church-admin"
+    container_name: "church-admin"
+    ports:
+      - 9001:8090
+    environment:
+      - BPL_JVM_THREAD_COUNT=50
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://church-admin-postgres:5432/church_admin
+
+  church-admin-postgres:
+    image: "postgres:14.4"
+    container_name: "church-admin-postgres"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=church_admin
